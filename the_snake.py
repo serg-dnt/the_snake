@@ -1,5 +1,4 @@
 from random import randrange
-
 import pygame
 
 # Константы для размеров поля и сетки:
@@ -53,7 +52,6 @@ class GameObject:
         Предполагается, что этот метод будет переопределен для дочерних
         классов класса GameObject.
         """
-        pass
 
 
 class Apple(GameObject):
@@ -76,7 +74,7 @@ class Apple(GameObject):
             )
             if snake_positions is None:
                 return new_position
-            elif new_position not in snake_positions:
+            if new_position not in snake_positions:
                 return new_position
 
     def draw(self):
@@ -136,7 +134,6 @@ class Snake(GameObject):
         self.positions.insert(0, new_head)
         if len(self.positions) > self.length:
             self.positions.pop()
-        # print(f'Positions: {self.positions}, Length: {self.length}')
 
     def draw(self):
         """Метод для отрисовки змейки на игровом поле."""
